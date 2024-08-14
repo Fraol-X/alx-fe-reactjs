@@ -11,11 +11,16 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
+import Counter from './components/Counter';
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <div>
+      <Counter/>
+    </div>
     <div>
       <WelcomeMessage />
     </div>
