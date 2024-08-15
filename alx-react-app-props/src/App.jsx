@@ -1,19 +1,15 @@
-import React from 'react';
-import WelcomeMessage from './components/WelcomeMessage';
+import React, { useState } from 'react';
+import ProfilePage from './components/ProfilePage';
+import UserContext from './UserContext';
 
+import WelcomeMessage from './components/WelcomeMessage';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 
-import UserProfile from './components/UserProfile';
-
-import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-
-import ProfilePage from './components/ProfilePage';
-import UserContext from './UserContext';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,35 +18,19 @@ function App() {
     name: "Alice",
     age: 25,
     bio: "Loves hiking and photography"
-
   };
 
   return (
     <>
-    <div>
       <UserContext.Provider value={userData}>
-
+        <Header />
+        <MainContent />
         <ProfilePage />
-
+        <Footer />
       </UserContext.Provider>
-    </div>
-    <div>
+
       <WelcomeMessage />
-    </div>
 
-    <div>
-      <Header />
-      <MainContent />
-      <Footer />
-    </div>
-
-    <div>
-    <Header />
-      <MainContent />
-      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
-      <Footer />
-    </div>
-      
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -59,6 +39,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
@@ -72,7 +53,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
