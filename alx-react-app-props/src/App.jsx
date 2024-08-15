@@ -1,3 +1,4 @@
+import React from 'react';
 import WelcomeMessage from './components/WelcomeMessage';
 
 import Header from './components/Header';
@@ -12,7 +13,7 @@ import viteLogo from '/vite.svg';
 import './App.css';
 
 import ProfilePage from './components/ProfilePage';
-import UserContext from './components/UserContext';
+import UserContext from './UserContext';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,7 +22,7 @@ function App() {
     name: "Alice",
     age: 25,
     bio: "Loves hiking and photography"
-    
+
   };
 
   return (
