@@ -1,4 +1,3 @@
-// RecipeList component
 import useRecipeStore from './recipeStore';
 
 const RecipeList = () => {
