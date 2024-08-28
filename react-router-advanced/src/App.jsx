@@ -1,19 +1,13 @@
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PostsComponent from './components/PostsComponent';
 
-const queryClient = new QueryClient();
-
+import {QueryClient, QueryClientProvider} from 'react-query'
 function App() {
+
+  const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<PostsComponent />} />
-        </Routes>
-      </Router>
+        <PostsComponent />
     </QueryClientProvider>
-  );
+  )
 }
 
-export default App;
+export default App
