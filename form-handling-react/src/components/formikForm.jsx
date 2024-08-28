@@ -1,60 +1,35 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 const validationSchema = Yup.object({
-  username: Yup.string().required('Username Is Required!'),
-  email: Yup.string().email('Invalid Email Address').required('Email Is Required!'),
-  password: Yup.string().required('Password Is Required!')
+  name: Yup.string().required("Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  password: Yup.string()
+    .min(8, "Password must be at least 8 characters long")
+    .required("Password is required"),
 });
 
-const FormikForm = () => {
+function formikForm() {
   return (
     <Formik
-      initialValues={{ username: '', email: '', password: '' }}
-      validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        setSubmitting(false);
+      initialValues={{ name: "", email: "", password: "" }}
+      validateSchema={validationSchema}
+      onSubmit={(values) => {
+        console.log(values);
       }}
     >
-      {({ isSubmitting }) => (
+      {() => (
         <Form>
-          <div>
-            <label>Username:</label>
-            <Field type="text" name="username" />
-            <ErrorMessage
-              name="username"
-              component="div"
-              style={{ backgroundColor: 'red', color: 'white' }}
-            />
-          </div>
-
-          <div>
-            <label>Email:</label>
-            <Field type="email" name="email" />
-            <ErrorMessage
-              name="email"
-              component="div"
-              style={{ backgroundColor: 'red', color: 'white' }}
-            />
-          </div>
-
-          <div>
-            <label>Password:</label>
-            <Field type="password" name="password" />
-            <ErrorMessage
-              name="password"
-              component="div"
-              style={{ backgroundColor: 'red', color: 'white' }}
-            />
-          </div>
-
-          <button type="submit" disabled={isSubmitting}>
-            Register
-          </button>
+          <Field type="text" name="name" />
+          <Field type="email" name="email" />
+          <Field type="password" name="password" />
+          <ErrorMessage name="email" component="div" />
+          <button type="submit">Submit</button>
         </Form>
       )}
     </Formik>
   );
-};
+}
 
-export default FormikForm;
+export default formikForm;

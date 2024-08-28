@@ -1,73 +1,79 @@
-import {useState} from 'react'; 
+import React from 'react'
+import {useState} from 'react'
 
-const RegistrationForm = () => {
-
+function RegistrationForm() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const[errors, setErrors] =useState({})
 
-    const handleSubmit = (e) => {
+    const handleUsernameChange = (e)=> {
+        setUsername(e.target.value);
+    }
+    const handleEmailChange =(e)=> {
+        setEmail(e.target.value)
+    }
+    const handlePasswordChange = (e)=> {
+        setPassword(e.target.value);
+    }
+    const handleSubmit = (e)=> {
         e.preventDefault();
-
-        if (!username) {
-            setError('Username Required!');
-            return;
-        } 
         
+        if (!username) {
+            setErrors('Username Required!');
+            return;
+        }  
         if (!email) {
-            setError('Email Required!');
+            setErrors('Email Required!');
             return;
         }
-
         if (!password) {
-            setError('Passwor Required!');
+            setErrors('Passwor Required!');
             return;
-        }
-
-        setError('');
+        }        
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
 
-                <label>Username:</label>
-                <input
-                    type= 'text'
-                    value= {username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
+    <form onSubmit={handleSubmit}>
 
-            </div>
+        <div>
+            <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={handleUsernameChange}
+            placeholder="Username"
+        />
+            {errors.username && <span>{errors.username}</span>}
+        </div>
+        
+        <div>
+            <input 
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder='Email'
+        />
+            {errors.email && <span>{errors.email}</span>}
+        </div>
+        
+        <div>
+            <input 
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder='Password'
+        />
+            {errors.password && <span>{errors.password}</span>}
+        </div>
 
-            <div>
+        <button type='submit'>Submit</button>
+        
+    </form>
+    )
+}
 
-                <label>Email:</label>
-                <input
-                    type= 'email'
-                    value= {email}
-                    onChange= {(e) => setEmail(e.target.value)}
-                />
-
-            </div>
-
-            <div>
-
-                <label>Password</label>
-                <input
-                    type='password'
-                    value= {password}
-                    onChange = {(e) => setPassword(e.target.value)}
-                />
-
-            </div>
-
-            {error && <p style={{ backgroundColor: 'red', color: 'white'}}>{error}</p>}
-            <button type= 'submit'>Register</button>
-            
-        </form>
-    );
-};
-
-export default RegistrationForm; 
+export default RegistrationForm
