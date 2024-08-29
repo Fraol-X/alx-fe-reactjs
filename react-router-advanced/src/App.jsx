@@ -1,6 +1,7 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Profile from './components/profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
 import BlogPost from './components/BlogPost';
@@ -13,7 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/post" element={<Post />} />
         <Route path="/blog/:id" element={<BlogPost />} />
-        <Route 
+        <Route
           path="/profile/*"
           element={<ProtectedRoute element={<Profile />} />}
         >
