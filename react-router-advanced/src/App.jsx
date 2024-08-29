@@ -1,9 +1,8 @@
-// src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/profile';
 import BlogPost from './components/BlogPost';
-import ProtectedRoute from './components/ProtectedRoute'; // Ensure this is correctly implemented
+import ProtectedRoute from './components/ProtectedRoute'; 
 
 function App() {
   return (
