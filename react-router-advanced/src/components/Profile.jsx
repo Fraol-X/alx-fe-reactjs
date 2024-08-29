@@ -1,17 +1,26 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
+import ProfileDetails from './ProfileDetails';
+import ProfileSettings from './ProfileSettings';
+import { useAuth } from './useAuth'; 
 
-function Profile() {
+const Profile = () => {
+
   return (
     <div>
-      <h1>Profile Page</h1>
+      <h1>Profile</h1>
       <nav>
-        <Link to="details">Profile Details</Link>
-        <Link to="settings">Profile Settings</Link>
+        <ul>
+          <li><a href="/profile/details">Details</a></li>
+          <li><a href="/profile/settings">Settings</a></li>
+        </ul>
       </nav>
-      <Outlet />
+      <Outlet /> 
+      <Routes>
+        <Route path="details" element={<ProfileDetails />} />
+        <Route path="settings" element={<ProfileSettings />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default Profile;

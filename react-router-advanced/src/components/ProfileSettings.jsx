@@ -1,7 +1,10 @@
-import React from 'react';
-
-function ProfileSettings() {
-  return <h2>Profile Settings</h2>;
-}
-
-export default ProfileSettings;
+const ProfileSettings = () => {
+    return (
+      <div>
+        <h2>Profile Settings</h2>
+      </div>
+    );
+  };
+  
+  export default ProfileSettings;
+  
