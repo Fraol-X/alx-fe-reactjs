@@ -1,11 +1,7 @@
-const ProfileDetails = () => {
-    return (
-      <div>
-        <h3>Profile Details</h3>
-        <p>Here are your profile details.</p>
-      </div>
-    );
-  };
-  
-  export default ProfileDetails;
-  
+import React from 'react';
+
+function ProfileDetails() {
+  return <h2>Profile Details</h2>;
+}
+
+export default ProfileDetails;

@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export const useAuth = () => {
+const useAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const login = () => setIsAuthenticated(true);
-  const logout = () => setIsAuthenticated(false);
+  useEffect(() => {
+    const authStatus = localStorage.getItem('auth') === 'true';
+    setIsAuthenticated(authStatus);
+  }, []);
 
-  return { isAuthenticated, login, logout };
+  return isAuthenticated;
 };
+
+export default useAuth;

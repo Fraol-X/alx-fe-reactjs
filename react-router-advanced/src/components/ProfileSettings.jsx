@@ -1,11 +1,7 @@
-const ProfileSettings = () => {
-    return (
-      <div>
-        <h3>Profile Settings</h3>
-        <p>Here you can update your settings.</p>
-      </div>
-    );
-  };
-  
-  export default ProfileSettings;
-  
+import React from 'react';
+
+function ProfileSettings() {
+  return <h2>Profile Settings</h2>;
+}
+
+export default ProfileSettings;
