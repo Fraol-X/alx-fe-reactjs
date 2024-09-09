@@ -28,11 +28,11 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <div className="container mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">
+    <div className="container mx-auto px-4 py-6 md:px-6 lg:px-8 lg:py-8">
+      <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
         Add a New Recipe
       </h2>
-      <form onSubmit={handleSubmit} className="bg-gradient-to-r from-purple-300 via-red-300 to-green-100 shadow-xl rounded-lg p-6 lg:p-12">
+      <form onSubmit={handleSubmit} className="bg-gradient-to-r from-purple-300 via-red-300 to-green-100 shadow-xl rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="mb-4">
           <label className="block text-sm font-semibold text-gray-700 mb-2">
             Recipe Title
