@@ -3,12 +3,12 @@
       "id": 1,
       "title": "Spaghetti Carbonara",
       "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://i.imgur.com/HCpQ5s4.jpeg",
       "ingredients": [
         "Spaghetti",
         "Eggs",
-        "cheese",
-        "pepper"
+        "Cheese",
+        "Pepper"
       ],
       "instructions": [
         "Cook spaghetti according to package instructions.",
@@ -21,7 +21,7 @@
       "id": 2,
       "title": "Chicken Tikka Masala",
       "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://i.imgur.com/Vpuhu6H.jpeg",
       "ingredients": [
         "Chicken",
         "Yogurt",
@@ -37,6 +37,28 @@
         "Grill chicken until cooked through.",
         "Prepare gravy by cooking tomato paste with spices and cream.",
         "Add grilled chicken to the gravy and simmer until flavors meld."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Doro Wot",
+      "summary": "A spicy Ethiopian chicken stew made with berbere spice mix and served with injera.",
+      "image": "https://i.imgur.com/tVb15jm.jpeg",
+      "ingredients": [
+        "Chicken",
+        "Berbere spice mix",
+        "Onions",
+        "Garlic",
+        "Ginger",
+        "Tomato paste",
+        "Butter"
+      ],
+      "instructions": [
+        "Prepare the chicken and marinate with spices.",
+        "Cook onions, garlic, and ginger in butter.",
+        "Add tomato paste and berbere spice mix.",
+        "Combine with chicken and simmer until cooked.",
+        "Serve with injera or rice."
       ]
     }
   ]
