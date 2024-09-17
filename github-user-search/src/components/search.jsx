@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { searchUsers } from '../services/githubApi';
 
-const SearchInput = () => {
+const Search = () => { 
   const [query, setQuery] = useState('');
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -63,4 +63,4 @@ const SearchInput = () => {
   );
 };
 
-export default SearchInput;
+export default Search;
