@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Exclude parent directory files
+/../package-lock.json
+/../react-todo/
+
