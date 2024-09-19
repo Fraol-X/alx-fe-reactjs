@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { searchUsers } from '../services/githubApi';
+import { fetchUserData } from '../services/githubService';
 
-const Search = () => { 
+const Search = () => {
   const [query, setQuery] = useState('');
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -12,23 +12,22 @@ const Search = () => {
   };
 
   const handleSearch = async () => {
-    if (!query) return; 
+    if (!query) return;
     setLoading(true);
     setError('');
-    setUsers([]);
-    
+    setUser(null);
     try {
-      const response = await searchUsers(query);
-      setUsers(response.data.items);
+      const userData = await fetchUserData(query);
+      setUser(userData);
     } catch (error) {
-      setError('Error fetching GitHub users. Please try again.');
+      setError('Looks like we can’t find the user.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div>
+    <div className="search-component">
       <input
         type="text"
         placeholder="Search GitHub users"
@@ -41,22 +40,14 @@ const Search = () => {
       </button>
 
       {loading && <p>Loading...</p>}
-
       {error && <p className="text-red-500">{error}</p>}
-
-      {users.length > 0 && (
-        <div className="mt-4">
-          <h3>Search Results:</h3>
-          <ul>
-            {users.map((user) => (
-              <li key={user.id} className="border p-2 my-2">
-                <img src={user.avatar_url} alt={user.login} className="w-10 h-10 inline-block mr-2" />
-                <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500">
-                  {user.login}
-                </a>
-              </li>
-            ))}
-          </ul>
+      {user && (
+        <div className="user-info mt-4">
+          <img src={user.avatar_url} alt={user.login} className="w-10 h-10" />
+          <p>{user.login}</p>
+          <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+            View Profile
+          </a>
         </div>
       )}
     </div>
