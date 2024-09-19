@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { fetchUserData } from '../services/githubService';
 
 const Search = () => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(''); 
   const [user, setUser] = useState(null); 
   const [loading, setLoading] = useState(false); 
-  const [error, setError] = useState('');
+  const [error, setError] = useState(''); 
 
   const handleSearch = async (e) => {
     e.preventDefault(); 
 
     if (!query) return;
 
-    setLoading(true); 
+    setLoading(true);
     setError(''); 
-    setUser(null);
+    setUser(null); 
 
     try {
       const response = await fetchUserData(query);
@@ -22,7 +22,7 @@ const Search = () => {
     } catch (err) {
       setError('Looks like we can’t find the user');
     } finally {
-      setLoading(false);
+      setLoading(false); 
     }
   };
 
@@ -33,7 +33,7 @@ const Search = () => {
           type="text"
           placeholder="Search GitHub users"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => setQuery(e.target.value)} 
           className="border p-2"
         />
         <button type="submit" className="ml-2 p-2 bg-blue-500 text-white">
