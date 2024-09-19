@@ -22,7 +22,8 @@ const Search = () => {
 
     try {
       const response = await fetchUserData(query, location, minRepos, 1);
-      setUsers(response.data.items);
+      setUsers(response.data.items); 
+      setPage(1);
     } catch (err) {
       setError('Looks like we can’t find any users matching your criteria');
     } finally {
@@ -34,7 +35,7 @@ const Search = () => {
     setLoading(true);
     try {
       const response = await fetchUserData(query, location, minRepos, page + 1);
-      setUsers((prevUsers) => [...prevUsers, ...response.data.items]);
+      setUsers((prevUsers) => [...prevUsers, ...response.data.items]); 
       setPage(page + 1);
     } catch (err) {
       setError('Looks like we can’t load more results');
