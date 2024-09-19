@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchInput from './components/Search';  // Make sure this matches the correct casing
+import Search from './components/Search';
 
 const App = () => {
   return (
@@ -8,7 +8,7 @@ const App = () => {
         <h1>GitHub User Search</h1>
       </header>
       <main>
-        <SearchInput />
+        <Search />
       </main>
     </div>
   );
