@@ -11,7 +11,7 @@ const Search = () => {
   const [page, setPage] = useState(1);
 
   const handleSearch = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     if (!query) return;
 
@@ -25,7 +25,7 @@ const Search = () => {
       setUsers(response.data.items); 
       setPage(1);
     } catch (err) {
-      setError('Looks like we can’t find any users matching your criteria');
+      setError('Looks like we cant find the user'); 
     } finally {
       setLoading(false);
     }
